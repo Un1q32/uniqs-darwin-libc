@@ -64,6 +64,26 @@ src/libc.a: $(ARCHS) $(OBJS)
 	@printf " \033[1;34mAR\033[0m %s\n" "libc.a"
 	$(V)$(LIBTOOL) -static -o $@ src/*/*.o
 
+crt/crt0.o: crt/crt.o crt/start.o
+	$(V)printf " \033[1;34mLD\033[0m crt0.o\n"
+	$(V)$(CC) -isysroot sdk $(LDFLAGS) $(OPTFLAGS) -nostdlib -r crt/crt.o crt/start.o -o $@
+
+crt/start.o $(ASMS:.S=.o): %.o: %.S $(HEADERS)
+	@src=$@; src=$${src##*/}; printf " \033[1;33mAS\033[0m %s\n" "$$src"
+	$(V)$(CC) -isysroot sdk -D_UNIQ_LIBC_PRIVATE_API $(OPTFLAGS) -c $< -o $@
+
+%.o: %.c sdk/usr/include $(HEADERS)
+	@src=$@; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
+	$(V)$(CC) -fno-builtin -isysroot sdk -std=c99 -D_UNIQ_LIBC_PRIVATE_API $(CFLAGS) $(OPTFLAGS) -c $< -o $@
+
+clean:
+	@printf "Cleaning up...\n"
+	$(V)rm -rf sdk/* tests/*.o tests/bin/* src/libc.a crt/*.o src/*/*.o
+
+clangd:
+	@printf "Generating clangd config...\n"
+	$(V)printf 'CompileFlags:\n  Add: [-I$(PWD)/include, -D_UNIQ_LIBC_PRIVATE_API, --target=x86_64-apple-darwin]\n' > .clangd
+
 compiler-rt:
 	@printf "Downloading compiler-rt...\n"
 	$(V)rm -rf compiler-rt
@@ -105,23 +125,3 @@ armv7s: compiler-rt sdk/usr/include $(HEADERS)
 armv7k: ARCH := armv7k
 armv7k: compiler-rt sdk/usr/include $(HEADERS)
 	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
-
-crt/crt0.o: crt/crt.o crt/start.o
-	$(V)printf " \033[1;34mLD\033[0m crt0.o\n"
-	$(V)$(CC) -isysroot sdk $(LDFLAGS) $(OPTFLAGS) -nostdlib -r crt/crt.o crt/start.o -o $@
-
-crt/start.o $(ASMS:.S=.o): %.o: %.S $(HEADERS)
-	@src=$@; src=$${src##*/}; printf " \033[1;33mAS\033[0m %s\n" "$$src"
-	$(V)$(CC) -isysroot sdk -D_UNIQ_LIBC_PRIVATE_API $(OPTFLAGS) -c $< -o $@
-
-%.o: %.c sdk/usr/include $(HEADERS)
-	@src=$@; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
-	$(V)$(CC) -fno-builtin -isysroot sdk -std=c99 -D_UNIQ_LIBC_PRIVATE_API $(CFLAGS) $(OPTFLAGS) -c $< -o $@
-
-clean:
-	@printf "Cleaning up...\n"
-	$(V)rm -rf sdk/* tests/*.o tests/bin/* src/libc.a crt/*.o src/*/*.o
-
-clangd:
-	@printf "Generating clangd config...\n"
-	$(V)printf 'CompileFlags:\n  Add: [-I$(PWD)/include, -D_UNIQ_LIBC_PRIVATE_API, --target=x86_64-apple-darwin]\n' > .clangd
