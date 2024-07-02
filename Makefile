@@ -70,7 +70,7 @@ crt/crt0.o: crt/crt.o crt/start.o
 
 crt/start.o $(ASMS:.S=.o): %.o: %.S $(HEADERS)
 	@src=$@; src=$${src##*/}; printf " \033[1;33mAS\033[0m %s\n" "$$src"
-	$(V)$(CC) -isysroot sdk -D_UNIQ_LIBC_PRIVATE_API $(OPTFLAGS) -c $< -o $@
+	$(V)$(CC) -isysroot sdk -D_UNIQ_LIBC_PRIVATE_API $(ASFLAGS) $(OPTFLAGS) -c $< -o $@
 
 %.o: %.c sdk/usr/include $(HEADERS)
 	@src=$@; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
