@@ -18,19 +18,19 @@
 - [ld64](https://github.com/tpoechtrager/cctools-port), (it needs to be in path as `ld64.ld64`)
 - lipo (from cctools-port or llvm-lipo, it needs to be in path as `lipo`)
 
-To build for all architectures:
+#### To build for all architectures:
 
 ```sh
 make release
 ```
 
-To build for a specific architecture:
+#### To build for a specific architecture:
 
 ```sh
 make release ARCHS='x86_64'
 ```
 
-To build the tests:
+#### To build the tests:
 
 ```sh
 make tests
