@@ -1,6 +1,10 @@
 #include <stdlib.h>
 
+#ifdef __MACH__
 extern int main(int, const char *[], const char *[], const char *[]);
+#else
+extern int main(int, const char *[], const char *[]);
+#endif
 
 int NXArgc = 0;
 const char **NXArgv = NULL;
@@ -21,10 +25,14 @@ void _start(int argc, const char *argv[], const char *envp[]) {
   } else
     __progname = "";
 
+#ifdef __MACH__
   const char **apple = envp;
   while (*apple != NULL)
     apple++;
   apple++;
 
   exit(main(argc, argv, envp, apple));
+#else
+  exit(main(argc, argv, envp));
+#endif
 }
