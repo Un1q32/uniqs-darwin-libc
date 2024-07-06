@@ -20,10 +20,6 @@ typedef struct {
   unsigned short listpos;
 } FILE;
 
-#define stdin stdin
-#define stdout stdout
-#define stderr stderr
-
 #define __SLBF 0x0001
 #define __SNBF 0x0002
 #define __SRD 0x0004
@@ -37,7 +33,11 @@ typedef struct {
 
 #define P_tmpdir "/var/tmp"
 
-#define getc(fp) getc(fp)
+#define stdin stdin
+#define stdout stdout
+#define stderr stderr
+
+#define getc(a) getc(a)
 
 __BEGIN_DECLS
 extern FILE *stdin;
