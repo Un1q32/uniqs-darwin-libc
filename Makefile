@@ -80,6 +80,10 @@ clean:
 	@printf "Cleaning up...\n"
 	$(V)rm -rf sdk/* tests/*.o tests/bin/* src/libc.a crt/*.o src/*/*.o
 
+distclean:
+	@printf "Cleaning up...\n"
+	$(V)rm -rf sdk/* tests/*.o tests/bin/* src/libc.a crt/*.o src/*/*.o compiler-rt
+
 clangd:
 	@printf "Generating clangd config...\n"
 	$(V)printf 'CompileFlags:\n  Add: [-I$(PWD)/include, -D_UNIQ_LIBC_PRIVATE_API, --target=x86_64-apple-darwin]\n' > .clangd
