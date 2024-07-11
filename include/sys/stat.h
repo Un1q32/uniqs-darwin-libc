@@ -30,6 +30,8 @@
 #define S_ISLNK(m) (((m)&S_IFMT) == S_IFLNK)
 #define S_ISSOCK(m) (((m)&S_IFMT) == S_IFSOCK)
 
+#define DEFFILEMODE (S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH)
+
 #define _STRUCT_STAT                                                           \
   {                                                                            \
     dev_t st_dev;                                                              \
@@ -68,6 +70,7 @@ extern int mkdirat(int, const char *, mode_t);
 extern int stat(const char *, struct stat *);
 extern int stat64(const char *, struct stat64 *);
 extern int lstat(const char *, struct stat *);
+extern mode_t umask(mode_t);
 __END_DECLS
 
 #endif
