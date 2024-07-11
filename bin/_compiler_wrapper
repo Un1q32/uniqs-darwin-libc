@@ -3,7 +3,12 @@
 target="${0##*/}"
 target="${target%-*}"
 
-[ "$(uname)" != "Darwin" ] && linker='-fuse-ld=ld64' && linkerver='-mlinker-version=951.9'
+[ "$(uname)" != "Darwin" ] && linker='-fuse-ld=ld64'
+
+arch="${target%%-*}"
+if ! [ "$arch" = "armv4t" ] && ! [ "$arch" = "armv5" ]; then
+    linkerver='-mlinker-version=951.9'
+fi
 
 exec clang \
     -target "$target" \
