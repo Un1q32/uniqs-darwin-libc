@@ -41,3 +41,7 @@ To easily use the library, add the `bin` folder to your path and use the compile
 ```sh
 x86_64-apple-darwin-cc something.c -lc # libc isn't linked by default
 ```
+
+## TODO
+- stdio stuff sucks, make it better
+- nanosleep is *really* bad
