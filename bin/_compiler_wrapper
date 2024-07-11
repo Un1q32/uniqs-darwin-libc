@@ -3,7 +3,7 @@
 target="${0##*/}"
 target="${target%-*}"
 
-[ "$(uname)" != "Darwin" ] && linker='-fuse-ld=ld64' && linkerver='-mlinker-version=907'
+[ "$(uname)" != "Darwin" ] && linker='-fuse-ld=ld64' && linkerver='-mlinker-version=951.9'
 
 exec clang \
     -target "$target" \
