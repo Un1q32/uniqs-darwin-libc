@@ -2,6 +2,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 FILE *fopen(const char *filename, const char *mode) {
   int flags = _fopen_mode_parse(mode);
@@ -9,8 +10,11 @@ FILE *fopen(const char *filename, const char *mode) {
     errno = EINVAL;
     return NULL;
   }
-  int fd = open(filename, flags, 0644);
-  if (fd == -1)
+  int fd = open(filename, flags, 0666);
+  if (fd < 0)
     return NULL;
-  return _fdopen(fd, flags);
+  FILE *fp = _fdopen(fd, flags);
+  if (fp == NULL)
+    close(fd);
+  return fp;
 }
