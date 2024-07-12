@@ -12,7 +12,7 @@ int vsscanf(const char *str, const char *format, va_list ap) {
       const char *fmt = format + i + 1;
       ssize_t width = -1;
       size_t formatlen;
-      unsigned int flags = _scanf_format(fmt, &width, &formatlen);
+      unsigned int flags = __scanf_format(fmt, &width, &formatlen);
       fmt += formatlen;
       switch (*fmt) {
       case '%':

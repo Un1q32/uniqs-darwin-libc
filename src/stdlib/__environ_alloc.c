@@ -4,8 +4,8 @@
 
 extern char **environ;
 
-void _environ_alloc(void) {
-  if (_environ_allocated)
+void __environ_alloc(void) {
+  if (__environ_allocated)
     return;
   int environ_len = 0;
   while (environ[environ_len] != NULL)
@@ -24,5 +24,5 @@ void _environ_alloc(void) {
   }
   new_environ[environ_len] = NULL;
   environ = new_environ;
-  _environ_allocated = true;
+  __environ_allocated = true;
 }

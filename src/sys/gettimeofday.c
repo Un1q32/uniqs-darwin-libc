@@ -10,7 +10,7 @@ int gettimeofday(struct timeval *tv, void *tz) {
       return -1;
     else if (ret != 0) {
       tv->tv_sec = ret;
-      tv->tv_usec = _syscallret2;
+      tv->tv_usec = __syscallret2;
     }
   }
   if (tz != NULL) {

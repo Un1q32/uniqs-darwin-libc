@@ -1,3 +1,3 @@
 #include <stdlib.h>
 
-int putenv(char *string) { return _putenv(string, 1); }
+int putenv(char *string) { return __putenv(string, 1); }

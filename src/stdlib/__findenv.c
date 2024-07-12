@@ -2,7 +2,7 @@
 
 extern char **environ;
 
-int _findenv(const char *name) {
+int __findenv(const char *name) {
   int i;
   for (i = 0; environ[i] != NULL; i++) {
     const char *p = strchr(environ[i], '=');

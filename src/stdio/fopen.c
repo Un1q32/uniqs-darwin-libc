@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 FILE *fopen(const char *filename, const char *mode) {
-  int flags = _fopen_mode_parse(mode);
+  int flags = __fopen_mode_parse(mode);
   if (flags == -1) {
     errno = EINVAL;
     return NULL;
@@ -13,7 +13,7 @@ FILE *fopen(const char *filename, const char *mode) {
   int fd = open(filename, flags, 0666);
   if (fd < 0)
     return NULL;
-  FILE *fp = _fdopen(fd, flags);
+  FILE *fp = __fdopen(fd, flags);
   if (fp == NULL)
     close(fd);
   return fp;

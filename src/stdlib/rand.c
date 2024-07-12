@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 int rand(void) {
-  int ret = _rand(_random_seed);
-  _random_seed = ret;
+  int ret = __rand(__random_seed);
+  __random_seed = ret;
   return ret;
 }

@@ -67,7 +67,7 @@ extern char *ttyname(int);
 extern int issetugid(void);
 
 #ifdef _UNIQ_LIBC_PRIVATE_API
-extern long _syscallret2;
+extern long __syscallret2;
 #endif
 __END_DECLS
 

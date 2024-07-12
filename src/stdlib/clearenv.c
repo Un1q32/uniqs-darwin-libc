@@ -4,7 +4,7 @@
 extern char **environ;
 
 int clearenv(void) {
-  if (_environ_allocated) {
+  if (__environ_allocated) {
     int i = 0;
     for (i = 0; environ[i] != NULL; i++)
       free(environ[i]);
@@ -14,6 +14,6 @@ int clearenv(void) {
   if (environ == NULL)
     return -1;
   environ[0] = NULL;
-  _environ_allocated = true;
+  __environ_allocated = true;
   return 0;
 }

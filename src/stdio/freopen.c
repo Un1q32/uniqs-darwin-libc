@@ -23,7 +23,7 @@ FILE *freopen(const char *path, const char *mode, FILE *stream) {
 
     fclose(new_stream);
   } else {
-    int flags = _fopen_mode_parse(mode);
+    int flags = __fopen_mode_parse(mode);
     if (flags == -1) {
       errno = EINVAL;
       return NULL;

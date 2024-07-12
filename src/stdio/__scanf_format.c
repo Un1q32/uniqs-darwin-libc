@@ -3,7 +3,7 @@
 #include <string.h>
 #include <sys/types.h>
 
-unsigned int _scanf_format(const char *format, ssize_t *width,
+unsigned int __scanf_format(const char *format, ssize_t *width,
                            size_t *formatlen) {
   const char *fmt = format;
   unsigned int flags = 0;

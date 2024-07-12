@@ -87,11 +87,11 @@ extern int sscanf(const char *, const char *, ...);
 extern int vsscanf(const char *, const char *, va_list);
 
 #ifdef _UNIQ_LIBC_PRIVATE_API
-extern FILE *_open_stream_list[65536];
-extern int _fopen_mode_parse(const char *);
-extern FILE *_fdopen(int, mode_t);
-extern unsigned int _scanf_format(const char *, ssize_t *, size_t *);
-extern void _random_alnum(char *, size_t);
+extern FILE *__open_stream_list[65536];
+extern int __fopen_mode_parse(const char *);
+extern FILE *__fdopen(int, mode_t);
+extern unsigned int __scanf_format(const char *, ssize_t *, size_t *);
+extern void __random_alnum(char *, size_t);
 #endif
 __END_DECLS
 

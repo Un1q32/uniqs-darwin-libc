@@ -5,9 +5,9 @@
 
 extern char **environ;
 
-int _putenv(char *string, int overwrite) {
-  _environ_alloc();
-  if (!_environ_allocated)
+int __putenv(char *string, int overwrite) {
+  __environ_alloc();
+  if (!__environ_allocated)
     return -1;
   char *p = strchr(string, '=');
   if (p == NULL) {
@@ -16,7 +16,7 @@ int _putenv(char *string, int overwrite) {
   }
 
   *p = '\0';
-  int i = _findenv(string);
+  int i = __findenv(string);
   *p = '=';
   if (i != -1) {
     if (overwrite) {

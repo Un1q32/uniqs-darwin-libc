@@ -1,7 +1,6 @@
 #include <fcntl.h>
-#include <stdio.h>
 
-int _fopen_mode_parse(const char *mode) {
+int __fopen_mode_parse(const char *mode) {
   int ret = 0;
   if (!mode)
     return -1;

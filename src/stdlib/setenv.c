@@ -6,5 +6,5 @@ int setenv(const char *name, const char *value, int overwrite) {
   strcpy(putenv_str, name);
   strcat(putenv_str, "=");
   strcat(putenv_str, value);
-  return _putenv(putenv_str, overwrite);
+  return __putenv(putenv_str, overwrite);
 }

@@ -50,15 +50,15 @@ extern void arc4random_buf(void *, size_t);
 #ifdef _UNIQ_LIBC_PRIVATE_API
 #include <stdbool.h>
 
-extern int _rand(unsigned int);
-extern bool _environ_allocated;
-extern void _environ_alloc(void);
-extern int _findenv(const char *);
-extern int _putenv(char *, int);
-extern unsigned int _random_seed;
-extern void (*_atexit_funcs[32])(void);
-extern void (**_atexit_funcs_extra)(void);
-extern int _atexit_count;
+extern int __rand(unsigned int);
+extern bool __environ_allocated;
+extern void __environ_alloc(void);
+extern int __findenv(const char *);
+extern int __putenv(char *, int);
+extern unsigned int __random_seed;
+extern void (*__atexit_funcs[32])(void);
+extern void (**__atexit_funcs_extra)(void);
+extern int __atexit_count;
 #endif
 __END_DECLS
 

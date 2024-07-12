@@ -4,10 +4,10 @@
 extern char **environ;
 
 int unsetenv(const char *name) {
-  _environ_alloc();
-  if (!_environ_allocated)
+  __environ_alloc();
+  if (!__environ_allocated)
     return -1;
-  int i = _findenv(name);
+  int i = __findenv(name);
   if (i == -1)
     return 0;
   free(environ[i]);

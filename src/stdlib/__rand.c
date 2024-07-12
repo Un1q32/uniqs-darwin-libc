@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-int _rand(unsigned int seed) {
+int __rand(unsigned int seed) {
   long hi, lo, x;
   if (seed == 0)
     seed = 123459876;

@@ -10,6 +10,6 @@ void _random_alnum(char *name, size_t len) {
   size_t i;
   for (i = 0; i < len; i++) {
     name[i] = charset[seed % (sizeof(charset) - 1)];
-    seed = _rand(seed);
+    seed = __rand(seed);
   }
 }
