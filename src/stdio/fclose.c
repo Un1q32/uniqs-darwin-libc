@@ -12,6 +12,10 @@ int fclose(FILE *stream) {
       while (nstreams > 0 && __open_stream_list[nstreams] == NULL)
         --nstreams;
     *(size_t *)__open_stream_list = nstreams;
+    FILE **new_list =
+        realloc(__open_stream_list, (nstreams + 1) * sizeof(FILE *));
+    if (new_list)
+      __open_stream_list = new_list;
   }
 
   if (stream != stdin && stream != stdout && stream != stderr) {

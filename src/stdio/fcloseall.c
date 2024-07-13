@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void fcloseall(void) {
   size_t nstreams = *(size_t *)__open_stream_list;
@@ -7,7 +8,8 @@ void fcloseall(void) {
       fclose(__open_stream_list[nstreams]);
     nstreams--;
   }
-  *__open_stream_list = NULL;
+  free(__open_stream_list);
+  __open_stream_list = NULL;
   fclose(stdin);
   fclose(stdout);
   fclose(stderr);
