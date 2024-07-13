@@ -13,7 +13,7 @@
 #define FILENAME_MAX PATH_MAX
 
 typedef struct {
-  short fd;
+  int fd;
   short flags;
   char *buf;
   unsigned short bufcount;
