@@ -1,10 +1,10 @@
 #include <stddef.h>
 
-char *strncpy(char *dst, const char *src, size_t size) {
+char *strncpy(char *dst, const char *src, size_t n) {
   char *ret = dst;
-  while (size && (*dst++ = *src++))
-    size--;
-  while (size--)
+  while (n && (*dst++ = *src++))
+    n--;
+  while (n--)
     *dst++ = '\0';
   return ret;
 }
