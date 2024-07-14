@@ -47,7 +47,7 @@ extern void abort(void);
 extern uint32_t arc4random(void);
 extern void arc4random_buf(void *, size_t);
 
-#ifdef _UNIQ_LIBC_PRIVATE_API
+#ifdef __UNIQ_LIBC_PRIVATE_API
 #include <stdbool.h>
 
 extern int __rand(unsigned int);

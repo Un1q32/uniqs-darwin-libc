@@ -86,7 +86,7 @@ extern char *tmpnam(char *);
 extern int sscanf(const char *, const char *, ...);
 extern int vsscanf(const char *, const char *, va_list);
 
-#ifdef _UNIQ_LIBC_PRIVATE_API
+#ifdef __UNIQ_LIBC_PRIVATE_API
 extern FILE **__open_stream_list;
 extern int __fopen_mode_parse(const char *);
 extern FILE *__fdopen(int, mode_t);
