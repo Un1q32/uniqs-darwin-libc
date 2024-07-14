@@ -22,7 +22,7 @@ extern void _exit(int);
 extern int access(const char *, int);
 extern ssize_t read(int, void *, size_t);
 extern ssize_t write(int, const void *, size_t);
-extern long syscall(long, ...);
+extern long syscall(int, ...);
 extern int chroot(const char *);
 extern int chdir(const char *);
 extern int fchdir(int);
