@@ -1,4 +1,3 @@
-ARCH := i386
 BUILTINS := udivdi3 umoddi3 fixunsxfdi
 _BUILTINS := $(addprefix src/builtins/$(ARCH)-,$(addsuffix .o,$(BUILTINS)))
 BCC = $(V)src=$@; src=$${src\#\#*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"; $(BUILTIN_CC) -isysroot sdk -std=c99 $(CFLAGS) $(OPTFLAGS) -c -o $@ $<

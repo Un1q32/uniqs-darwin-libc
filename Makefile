@@ -104,28 +104,28 @@ arm64e:
 
 i386: ARCH := i386
 i386: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv4t: ARCH := armv4t
 armv4t: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv5: ARCH := armv5
 armv5: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv6: ARCH := armv6
 armv6: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv7: ARCH := armv7
 armv7: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv7s: ARCH := armv7s
 armv7s: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)
 
 armv7k: ARCH := armv7k
 armv7k: compiler-rt sdk/usr/include $(HEADERS)
-	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)"
+	@$(MAKE) -f arch/$(ARCH)/$(ARCH).mk NOASM=$(NOASM) BUILTIN_CC="$(BUILTIN_CC)" V=$(V) CFLAGS="$(CFLAGS)" OPTFLAGS="$(OPTFLAGS)" ARCH=$(ARCH)

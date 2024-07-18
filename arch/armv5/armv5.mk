@@ -1,4 +1,3 @@
-ARCH := armv5
 BUILTINS := fixunsdfdi floatundidf udivdi3 umoddi3 umodsi3 modsi3 divsi3 udivsi3 clzdi2 fixdfsi muldf3 floatsidf subdf3 comparedf2 adddf3 fp_mode addsf3 clzsi2 divsf3 extendsfdf2 fixsfsi comparesf2 mulsf3 subsf3 truncdfsf2
 _BUILTINS := $(addprefix src/builtins/$(ARCH)-,$(addsuffix .o,$(BUILTINS)))
 BCC = $(V)src=$@; src=$${src\#\#*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"; $(BUILTIN_CC) -isysroot sdk -std=c99 $(CFLAGS) $(OPTFLAGS) -c -o $@ $<
