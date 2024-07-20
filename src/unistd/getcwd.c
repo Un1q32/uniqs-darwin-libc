@@ -1,8 +1,8 @@
 #include <errno.h>
 #include <fcntl.h>
-#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/syslimits.h>
 
 char *getcwd(char *buf, size_t size) {
   int fd = open(".", O_RDONLY);
