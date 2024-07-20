@@ -16,6 +16,8 @@ FILE *__fdopen(int fd, mode_t flags) {
   ret->fd = fd;
   ret->flags = 0;
   ret->bufcount = 0;
+  ret->read = read;
+  ret->write = write;
 
   if (!__open_stream_list) {
     __open_stream_list = malloc(sizeof(FILE *) * 2);

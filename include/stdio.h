@@ -18,6 +18,8 @@ typedef struct {
   char *buf;
   unsigned short bufcount;
   size_t listpos;
+  ssize_t (*read)(int, void *, size_t);
+  ssize_t (*write)(int, const void *, size_t);
 } FILE;
 
 #define __SLBF 0x0001

@@ -11,13 +11,13 @@ size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream) {
   }
 
   fflush(stream);
-  ssize_t readeret = read(stream->fd, ptr, size * nmemb);
-  if (readeret < 0) {
+  ssize_t readret = stream->read(stream->fd, ptr, size * nmemb);
+  if (readret < 0) {
     stream->flags |= __SERR;
     return 0;
-  } else if (readeret == 0) {
+  } else if (readret == 0) {
     stream->flags |= __SEOF;
     return 0;
   }
-  return readeret / size;
+  return readret / size;
 }

@@ -11,7 +11,7 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream) {
   }
 
   if (stream->flags & __SNBF) {
-    ssize_t writeret = write(stream->fd, ptr, size * nmemb);
+    ssize_t writeret = stream->write(stream->fd, ptr, size * nmemb);
     if (writeret < 0) {
       stream->flags |= __SERR;
       return 0;
