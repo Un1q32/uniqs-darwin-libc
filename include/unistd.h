@@ -32,6 +32,7 @@ extern int unlink(const char *);
 extern int symlink(const char *, const char *);
 extern int close(int);
 extern char *getcwd(char *, size_t);
+extern char *getwd(char *);
 extern pid_t fork(void);
 extern pid_t vfork(void);
 extern pid_t getpid(void);
