@@ -13,6 +13,6 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd,
     errno = EINVAL;
     return MAP_FAILED;
   }
-  long ret = syscall(SYS_mmap, addr, length, prot, flags, fd, offset);
-  return ((ret == -1) ? MAP_FAILED : (void *)ret);
+
+  return (void *)syscall(SYS_mmap, addr, length, prot, flags, fd, offset);
 }
