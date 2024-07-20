@@ -17,7 +17,7 @@ typedef struct {
   short flags;
   char *buf;
   unsigned short bufcount;
-  unsigned short listpos;
+  size_t listpos;
 } FILE;
 
 #define __SLBF 0x0001
