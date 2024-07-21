@@ -75,6 +75,8 @@ extern int stat(const char *, struct stat *);
 extern int stat64(const char *, struct stat64 *);
 extern int lstat(const char *, struct stat *);
 extern mode_t umask(mode_t);
+extern int chmod(const char *, mode_t);
+extern int fchmod(int, mode_t);
 __END_DECLS
 
 #endif
