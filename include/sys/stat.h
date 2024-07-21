@@ -22,6 +22,10 @@
 #define S_IXGRP 0000010
 #define S_IXOTH 0000001
 
+#define S_ISUID 0004000
+#define S_ISGID 0002000
+#define S_ISVTX 0001000
+
 #define S_ISBLK(m) (((m)&S_IFMT) == S_IFBLK)
 #define S_ISCHR(m) (((m)&S_IFMT) == S_IFCHR)
 #define S_ISDIR(m) (((m)&S_IFMT) == S_IFDIR)
