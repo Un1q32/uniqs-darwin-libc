@@ -50,6 +50,7 @@
 #define SYS_gettimeofday 116
 #define SYS_getsockopt 118
 #define SYS_settimeofday 122
+#define SYS_fchmod 124
 #define SYS_shutdown 134
 #define SYS_mkdir 136
 #define SYS_rmdir 137
