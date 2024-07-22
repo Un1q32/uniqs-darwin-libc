@@ -14,7 +14,7 @@ start:
   bic sp, sp, #15
   bl __start
   .long 0xe1200070
-#elif defined(__arm64__)
+#elif defined(__aarch64__)
   mov x5, sp
   ldr x0, [x5]
   add x1, x5, #8

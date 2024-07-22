@@ -15,7 +15,7 @@ _syscall:
   ldmia sp!, {r4,r5,r6,r8}
   bcc ___syscall_success
   b ___syscall_error
-#elif defined(__arm64__)
+#elif defined(__aarch64__)
   ldp x1, x2, [sp]
   ldp x3, x4, [sp, #0x10]
   ldp x5, x6, [sp, #0x20]
