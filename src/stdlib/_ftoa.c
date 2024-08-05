@@ -2,7 +2,7 @@
 #include <string.h>
 
 char *_ftoa(long double num, int percision) {
-  char buf[32];
+  static char buf[32];
   char *p = buf;
   if (num < 0) {
     *p++ = '-';
@@ -13,7 +13,6 @@ char *_ftoa(long double num, int percision) {
   char *int_str = _utoa(integer);
   strcpy(p, int_str);
   p += strlen(int_str);
-  free(int_str);
   *p++ = '.';
   while (percision--) {
     num *= 10;
@@ -21,5 +20,5 @@ char *_ftoa(long double num, int percision) {
     num -= (int)num;
   }
   *p = '\0';
-  return strdup(buf);
+  return buf;
 }

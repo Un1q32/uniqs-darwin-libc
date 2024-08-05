@@ -160,7 +160,6 @@ int vsnprintf(char *str, size_t size, const char *format, va_list ap) {
           j++;
           k++;
         }
-        free(tmp);
         break;
       case 'u':
         if (flags & 1 << 4)
@@ -192,7 +191,6 @@ int vsnprintf(char *str, size_t size, const char *format, va_list ap) {
           j++;
           k++;
         }
-        free(tmp);
         break;
       case 'F':
       case 'f':
@@ -213,7 +211,6 @@ int vsnprintf(char *str, size_t size, const char *format, va_list ap) {
           j++;
           k++;
         }
-        free(tmp);
         break;
       case 'p':
         altform = true;
@@ -257,7 +254,6 @@ int vsnprintf(char *str, size_t size, const char *format, va_list ap) {
           j++;
           k++;
         }
-        free(tmp);
         break;
       case 'X':
         if (flags & 1 << 4)
@@ -297,7 +293,6 @@ int vsnprintf(char *str, size_t size, const char *format, va_list ap) {
           j++;
           k++;
         }
-        free(tmp);
         break;
       case 'n':
         if (flags & 1 << 4)
