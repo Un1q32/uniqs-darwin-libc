@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 
 int fgetc(FILE *stream) {
   unsigned char c;
