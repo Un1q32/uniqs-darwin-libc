@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 
 int fflush(FILE *stream) {
   ssize_t writeret = stream->write(stream->fd, stream->buf, stream->bufcount);
